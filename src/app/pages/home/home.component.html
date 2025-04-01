@@ -1,0 +1,23 @@
+<div>
+  <br/>
+  <button (click)=" this.bookStore.loadBooks()">Load Books</button>
+  <h1>
+    <!--  Reading Computed Signal   -->
+    <b>Total Books Count: </b><span> {{ bookStore.booksCount() }}</span>
+  </h1>
+  <h1>
+    <!--  Reading Deep Computed Signal   -->
+    <b>Total Books Count: </b><span> {{ bookStore.pagination() | json }}</span>
+  </h1>
+  <!--    Reading Signal    -->
+  <!-- <h2>First Book: {{ bookStore.books()[0] }}</h2> -->
+  <div><span>Whole Books</span> &nbsp; &nbsp;<button (click)="bookStore.sort()">Sort</button>
+  </div>
+
+  @for (book of bookStore.sortedBooks(); track $index) {
+    <h2>{{ book }}</h2>
+  }
+  <!--    Reading Deep Signal   -->
+  <p>Filter: {{ bookStore.filter() | json }}</p>
+  <p>Filter: {{ bookStore.filter.query() }}</p>
+</div>

@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {BookStore} from './store/books.store';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  imports: [
+    RouterOutlet,
+    RouterLink
+  ],
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
-  title = 'ngrx-signals';
+  title = 'ngrx-signals'
+
 }

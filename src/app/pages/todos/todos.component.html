@@ -1,0 +1,9 @@
+<br/>
+<br/>
+<div>
+  <input [(ngModel)]="todo" type="text" (keydown.enter)="addToDo(todo)"/>
+  <button (click)="addToDo(todo)">Add New ToDo</button>
+</div>
+@for (entity of todosStore.entities(); track $index) {
+  <p><button class="delete_btn"  (click)="todosStore.removeTodo(entity.id)">-</button>&nbsp;&nbsp;{{ entity.text }}</p>
+}
